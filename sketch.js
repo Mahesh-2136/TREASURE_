@@ -1,4 +1,4 @@
-var path,boy,cash,diamonds,jwellery,sword;
+var path,boy,cash,diamonds,jwellery,sword,RubyImg
 var pathImg,boyImg,cashImg,diamondsImg,jwelleryImg,swordImg;
 var treasureCollection = 0;
 var cashG,diamondsG,jwelleryG,swordGroup;
@@ -12,6 +12,7 @@ function preload(){
   jwelleryImg = loadImage("jwell.png");
   swordImg = loadImage("sword.png");
   endImg =loadAnimation("gameOver.png");
+  RubyImg=loadImage("ruby.png);
 }
 
 function setup(){
@@ -42,7 +43,7 @@ cashG=new Group();
 diamondsG=new Group();
 jwelleryG=new Group();
 swordGroup=new Group();
-
+RubyGroup=new Group();
 }
 
 function draw() {
@@ -151,8 +152,18 @@ function createSword(){
   var sword = createSprite(Math.round(random(50, 350),40, 10, 10));
   sword.addImage(swordImg);
   sword.scale=0.1;
-  sword.velocityY = 3;
+  sword.velocityY = 3(30/treasureCollection);
   sword.lifetime = 150;
   swordGroup.add(sword);
+  }
+}
+function createRuby(){
+  if (World.frameCount % 300 == 0) {
+  var Ruby = createSprite(Math.round(random(50, 350),40, 10, 10));
+  Ruby.addImage(RubyImg);
+  Ruby.scale=0.1;
+  Ruby.velocityY = 3(30/treasureCollection);
+  Ruby.lifetime = 150;
+  RubyGroup.add(Ruby);
   }
 }
